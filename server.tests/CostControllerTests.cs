@@ -6,6 +6,8 @@ namespace server.tests
     [TestClass]
     public class CostControllerTests
     {
+       
+        
         [TestMethod]
         public void GetAll()
         {
@@ -15,5 +17,32 @@ namespace server.tests
 
             Assert.IsNotNull(result);
       }
-    }
-}
+
+
+
+        [TestMethod]
+        public void GetUsersl()
+        {
+            var controller = new CostController();
+
+            var result = controller.GetAllUsers();
+
+            Assert.IsNotNull(result);
+        }
+   
+        
+        
+       [TestMethod]
+    public void GetAllCosts()
+    {
+        var controller = new CostController();
+
+        var result = controller.GetAllCosts();
+
+        Assert.IsNotNull(result);
+    }     
+        
+        
+        
+        } //eoc
+    }  //eon
