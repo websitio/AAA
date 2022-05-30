@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using server.DataServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,8 +11,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefautConnection"));
+});
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{ var db = scope.ServiceProvider.GetRequiredService<DbContext>(); }
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

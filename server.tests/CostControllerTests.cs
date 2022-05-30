@@ -18,15 +18,13 @@ namespace server.tests
             Assert.IsNotNull(result);
       }
 
-
+        /*
 
         [TestMethod]
         public void GetUsersl()
         {
             var controller = new CostController();
-
             var result = controller.GetAllUsers();
-
             Assert.IsNotNull(result);
         }
    
@@ -36,13 +34,11 @@ namespace server.tests
     public void GetAllCosts()
     {
         var controller = new CostController();
-
         var result = controller.GetAllCosts();
-
         Assert.IsNotNull(result);
     }     
         
-        
-        
-        } //eoc
-    }  //eon
+        */
+
+    } //eoc
+}  //eon
