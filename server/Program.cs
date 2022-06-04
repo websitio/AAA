@@ -5,21 +5,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
+
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DefautConnection"));
 });
 
+
+builder.Services.AddControllers();
+//more about Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
+
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{ var db = scope.ServiceProvider.GetRequiredService<DbContext>(); }
+//using (var scope = app.Services.CreateScope())
+//{ var db = scope.ServiceProvider.GetRequiredService<DbContext>(); }
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
