@@ -2,11 +2,7 @@
 
 namespace server
 {
-
-
-
-
-    #region pre static        
+        #region pre static        
     /*
     public  class Startup
     {
@@ -28,7 +24,6 @@ namespace server
         } 
     */
     #endregion
-
 
           public static class Startup
          {
@@ -66,13 +61,19 @@ namespace server
 
         private static void Configure(WebApplication app)
         {
+
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
             app.UseAuthentication();
             app.UseAuthorization();
-
-            //app.MapGet(pattern: "/", () =>
-            //{
-            //    return "Hola John";
-            //}).RequireAuthorization();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.MapControllers();
 
         }
 

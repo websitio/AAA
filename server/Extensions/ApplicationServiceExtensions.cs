@@ -12,7 +12,16 @@ namespace server.Extensions
                 {
                     options.UseSqlite(config.GetConnectionString("DefautConnection"));
                 }
-                                                                                      );
+           );
+       
+                services.AddControllers();
+                services.AddEndpointsApiExplorer();
+                services.AddSwaggerGen();
+                services.AddCors();
+
+                
+                
+              
                 return services;
             }
 
