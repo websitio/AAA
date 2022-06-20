@@ -6,11 +6,12 @@ namespace server.Extensions
     public static class ApplicationServiceExtensions
     {
      
-        public static IServiceCollection AddApplicationUsersService(this IServiceCollection services,  IConfiguration config)
+        public static IServiceCollection AddApplicationUsersService(this IServiceCollection services)
             {
                 services.AddDbContext<DataContext>(options =>
                 {
-                    options.UseSqlite(config.GetConnectionString("DefautConnection"));
+                    options.UseSqlite(Environment.GetEnvironmentVariable("DefautConnection"));
+             //       options.UseSqlite(config.GetConnectionString("DefautConnection"));
                 }
            );
        
