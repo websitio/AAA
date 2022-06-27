@@ -8,23 +8,14 @@ namespace server.Interfaces
 
 
 
-    public interface IUserRepository {
-
-    IEnumerable<AppUser>  GetUsers();
-            
-
-    AppUser GetUser(int id);
-
-
-
-
-
-    // IQueryable<AppUser> GetUsersQ();
-
+ public interface IUserRepository 
+ {
+  Task<IEnumerable<AppUser>>  GetUsersAsync();
+  Task<AppUser> GetUserByIdAsync(int id);
+  
+   Task<bool> SaveAllChangesAsync();
+    void UpdateUser(AppUser user);
+  // IQueryable<AppUser> GetUsersQ();
 
     }
-
-    
-
-
 }

@@ -1,12 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using server.Entities.BaseEntities;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace API.Entities
 {
-    public class AppUser
+    public class AppUser : AuditBase
     {
-      
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string? UserName { get; set; } = String.Empty;     //"N" not "n"  = future proofed '
+
+        [Required]
+        [MaxLength(250)]
+        public string UserName { get; set; }     //"N" not "n"  = future proofed '
 
         public byte[]? PasswordHash { get; set; }
         public byte[]? PasswordSalt { get; set; }

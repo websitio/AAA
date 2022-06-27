@@ -1,18 +1,27 @@
-﻿using server.Controllers.BaseControllers;
+﻿using Microsoft.AspNetCore.Mvc;
+using server.Controllers.BaseControllers;
+using server.Interfaces;
+using server.Models;
 
 namespace server.Controllers
 {
     public class UsersController : UserControllerApiBase
     {
 
+        private readonly IUserRepository _userRepository;
 
+                public UsersController(IUserRepository userRepository )
+                {
+                    _userRepository=userRepository;
+                }
 
-        public UsersController()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<AppUserDto>>> GetUsers()
         {
+            var users = await _userRepository.GetUsersAsync();
 
+            return Ok(users);
         }
-
-
 
     }
 }

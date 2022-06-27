@@ -8,10 +8,22 @@ namespace server.Extensions
      
         public static IServiceCollection AddApplicationUsersService(this IServiceCollection services)
             {
+
+ // IWebHostEnvironment environment
+
+
                 services.AddDbContext<DataContext>(options =>
                 {
-                    options.UseSqlite(Environment.GetEnvironmentVariable("DefautConnection"));
-             //       options.UseSqlite(config.GetConnectionString("DefautConnection"));
+
+
+                    //        options.UseSqlite("Data source=keycost2022.db");
+
+
+                    //  "Data source=keycost2022.db"
+                    //    options.UseSqlite(Environment.GetEnvironmentVariable("DefautConnection"));
+                    options.UseSqlite();
+
+                    //       options.UseSqlite(config.GetConnectionString("DefautConnection"));
                 }
            );
        
