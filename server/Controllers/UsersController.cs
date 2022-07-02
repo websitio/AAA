@@ -5,7 +5,7 @@ using server.Models;
 
 namespace server.Controllers
 {
-    public class UsersController : UserControllerApiBase
+    public class UsersController : UserControllerBase
     {
 
         private readonly IUserRepository _userRepository;
@@ -15,13 +15,14 @@ namespace server.Controllers
                     _userRepository=userRepository;
                 }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<AppUserDto>>> GetUsers()
-        {
-            var users = await _userRepository.GetUsersAsync();
 
-            return Ok(users);
-        }
+
+                 [HttpGet]
+               public async Task<ActionResult<IEnumerable<AppUserDto>>> GetUsers()
+                {
+                  var users = await _userRepository.GetUsersAsync();
+                  return Ok(users);
+                }
 
     }
 }

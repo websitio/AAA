@@ -15,9 +15,7 @@ namespace server.DataServices
                 optionsBuilder.UseSqlite(_config.GetConnectionString("DefautConnection"));
             }
     
-        //public DataContext(DbContextOptions options) : base(options) { }
-
-        public DbSet<AppUser> Users { get; set; }
+             public DbSet<AppUser> Users { get; set; }
 
     }
 }
