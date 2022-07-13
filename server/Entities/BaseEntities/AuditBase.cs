@@ -7,8 +7,7 @@ namespace server.Entities.BaseEntities
         [Required]
         public DateTime CreatedOn { get; set; }
 
-        [Required]
-        public string? CreateBy { get; set; }
+      public string? CreateBy { get; set; }
 
         public DateTime UpdatedOn { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace server.Interfaces
 {
-    internal interface IAccountRepository
+    public interface IAccountRepository
     {
     }
 }

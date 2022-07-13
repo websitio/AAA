@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server.DataServices;
 
@@ -10,9 +11,10 @@ using server.DataServices;
 namespace server.DataServices.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220712235136_EntitiesAddedUpdated2")]
+    partial class EntitiesAddedUpdated2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -57,7 +59,7 @@ namespace server.DataServices.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Cost")
@@ -70,6 +72,7 @@ namespace server.DataServices.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UpdateBy")
@@ -78,7 +81,7 @@ namespace server.DataServices.Migrations
                     b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserCategoryId")
+                    b.Property<int>("UserCategoryId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -128,7 +131,9 @@ namespace server.DataServices.Migrations
                 {
                     b.HasOne("server.Entities.UserCategory", "UserCategory")
                         .WithMany("CostAmounts")
-                        .HasForeignKey("UserCategoryId");
+                        .HasForeignKey("UserCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("UserCategory");
                 });

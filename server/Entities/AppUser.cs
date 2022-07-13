@@ -1,5 +1,5 @@
-﻿using server.Entities.BaseEntities;
-using System.Collections.Generic;
+﻿using server.Entities;
+using server.Entities.BaseEntities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,7 +7,6 @@ namespace API.Entities
 {
     public class AppUser : AuditBase
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -19,8 +18,7 @@ namespace API.Entities
         public byte[]? PasswordHash { get; set; }
         public byte[]? PasswordSalt { get; set; }
 
-        //        public ICollection<Photo> Photos { get; set; }
-        //        public ICollection<CostCategory> {get; set;}
-        //        public ICollection<Cost> {get; set;}
+        public ICollection<UserCategory> UserCategories { get; set; } =
+        new List<UserCategory>();
     }
 }

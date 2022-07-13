@@ -32,13 +32,6 @@ namespace server
 
         }    //End of GetAllUsers
 
-
-
-
-
-
-
-
         /*
           [HttpGet()] 
           public JsonResult GetAllCosts()
