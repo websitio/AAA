@@ -6,35 +6,18 @@ namespace server.Extensions
     public static class ApplicationServiceExtensions
     {
      
-        public static IServiceCollection AddApplicationUsersService(this IServiceCollection services)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
             {
-
- // IWebHostEnvironment environment
-
-
                 services.AddDbContext<DataContext>(options =>
-                {
-
-
-                    //        options.UseSqlite("Data source=keycost2022.db");
-
-
-                    //  "Data source=keycost2022.db"
-                    //    options.UseSqlite(Environment.GetEnvironmentVariable("DefautConnection"));
-                    options.UseSqlite();
-
-                    //       options.UseSqlite(config.GetConnectionString("DefautConnection"));
-                }
+                {       options.UseSqlite(Environment.GetEnvironmentVariable("DefautConnection"));
+                       }
            );
        
                 services.AddControllers();
                 services.AddEndpointsApiExplorer();
                 services.AddSwaggerGen();
                 services.AddCors();
-
-                
-                
-              
+                         
                 return services;
             }
 

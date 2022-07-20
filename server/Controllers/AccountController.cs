@@ -1,13 +1,16 @@
 ﻿using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using server.Controllers.BaseControllers;
 using server.DataServices;
 using server.Interfaces;
+using server.Models;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace server.Controllers
 {
+
     public class AccountController : AccountControllerBase
     {
 
@@ -21,15 +24,18 @@ namespace server.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<AppUser>> Register(string username, string password)
+        public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
                     {
+
+           // if (await UserExists(registerDto.Username)) return BadRequest("whoops, that name is taken");
+
 
             using var hmac = new HMACSHA512();
 
             var user = new AppUser
             {
-                UserName = username,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
+                UserName = registerDto.Username,
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
 
             };
@@ -40,6 +46,15 @@ namespace server.Controllers
 
             return user;
         }
+
+
+
+        private async Task<bool> UserExists(string username)
+        {
+            return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
+            //does any username in table match what's passed in here
+        }
+
 
     }
 }

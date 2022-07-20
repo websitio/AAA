@@ -3,7 +3,7 @@
 namespace server.Controllers.BaseControllers
 {
     [ApiController]
-    [Route("api/User")]
+    [Route("api/[controller]")]
     public class UserControllerBase : ControllerBase
     {
 
