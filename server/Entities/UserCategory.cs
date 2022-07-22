@@ -1,4 +1,4 @@
-﻿using API.Entities;
+﻿using Server.Entities;
 using server.Entities.BaseEntities;
 
 namespace server.Entities

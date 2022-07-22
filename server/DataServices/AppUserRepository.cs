@@ -1,4 +1,4 @@
-﻿using API.Entities;
+﻿using Server.Entities;
 using Microsoft.EntityFrameworkCore;
 using server.Interfaces;
 using System.Linq;

@@ -3,7 +3,7 @@ using server.Entities.BaseEntities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace API.Entities
+namespace Server.Entities
 {
     public class AppUser : AuditBase
     {

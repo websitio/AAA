@@ -3,22 +3,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace server.DataServices.Migrations
+namespace server.Services.Migrations
 {
-    public partial class EntitiesAdded : Migration
+    public partial class newInitialJuly202022 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
-                name: "UserName",
-                table: "Users",
-                type: "TEXT",
-                maxLength: 250,
-                nullable: false,
-                defaultValue: "",
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldNullable: true);
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserName = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    PasswordSalt = table.Column<byte[]>(type: "BLOB", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreateBy = table.Column<string>(type: "TEXT", nullable: true),
+                    UpdatedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UpdateBy = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "UserCategory",
@@ -28,9 +36,9 @@ namespace server.DataServices.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
-                    AppUserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    AppUserId = table.Column<int>(type: "INTEGER", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateBy = table.Column<string>(type: "TEXT", nullable: false),
+                    CreateBy = table.Column<string>(type: "TEXT", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdateBy = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -41,8 +49,7 @@ namespace server.DataServices.Migrations
                         name: "FK_UserCategory_Users_AppUserId",
                         column: x => x.AppUserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -52,11 +59,11 @@ namespace server.DataServices.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Cost = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UserCategoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: true),
+                    UserCategoryId = table.Column<int>(type: "INTEGER", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    CreateBy = table.Column<string>(type: "TEXT", nullable: false),
+                    CreateBy = table.Column<string>(type: "TEXT", nullable: true),
                     UpdatedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UpdateBy = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -67,8 +74,7 @@ namespace server.DataServices.Migrations
                         name: "FK_CostAmount_UserCategory_UserCategoryId",
                         column: x => x.UserCategoryId,
                         principalTable: "UserCategory",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -90,14 +96,8 @@ namespace server.DataServices.Migrations
             migrationBuilder.DropTable(
                 name: "UserCategory");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "UserName",
-                table: "Users",
-                type: "TEXT",
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "TEXT",
-                oldMaxLength: 250);
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

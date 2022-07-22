@@ -1,9 +1,9 @@
-﻿using API.Entities;
+﻿using Server.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Controllers.BaseControllers;
 using server.DataServices;
-using server.Interfaces;
+using Server.Interfaces;
 using server.Models;
 using System.Security.Cryptography;
 using System.Text;
@@ -23,21 +23,22 @@ namespace server.Controllers
             _context=context;
         }
 
+
+
+
+
+
         [HttpPost("register")]
         public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto)
                     {
-
-           // if (await UserExists(registerDto.Username)) return BadRequest("whoops, that name is taken");
-
+            if (await UserExists(registerDto.Username)) return BadRequest("whoops, that name is taken");
 
             using var hmac = new HMACSHA512();
-
             var user = new AppUser
             {
                 UserName = registerDto.Username,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
-
             };
 
             _context.Users.Add(user);

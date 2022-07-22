@@ -1,9 +1,9 @@
-﻿using API.Entities;
+﻿using Server.Entities;
 
-namespace server.Interfaces
+namespace Server.Interfaces
 {
-    public interface ITokenService
+   public interface ITokenService
     {
-        string CreateJWT(AppUser appUser);
+        string CreateToken(AppUser user);
     }
 }

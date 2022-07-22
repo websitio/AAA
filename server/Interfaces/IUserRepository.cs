@@ -1,4 +1,4 @@
-﻿using API.Entities;
+﻿using Server.Entities;
 
 namespace server.Interfaces
 {

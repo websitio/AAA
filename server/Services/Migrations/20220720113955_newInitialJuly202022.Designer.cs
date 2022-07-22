@@ -8,11 +8,11 @@ using server.DataServices;
 
 #nullable disable
 
-namespace server.DataServices.Migrations
+namespace server.Services.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220712185105_EntitiesAdded")]
-    partial class EntitiesAdded
+    [Migration("20220720113955_newInitialJuly202022")]
+    partial class newInitialJuly202022
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,6 @@ namespace server.DataServices.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CreateBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedOn")
@@ -60,21 +59,19 @@ namespace server.DataServices.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Cost")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CreateBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UpdateBy")
@@ -83,7 +80,7 @@ namespace server.DataServices.Migrations
                     b.Property<DateTime>("UpdatedOn")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UserCategoryId")
+                    b.Property<int?>("UserCategoryId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -99,11 +96,10 @@ namespace server.DataServices.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AppUserId")
+                    b.Property<int?>("AppUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CreateBy")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedOn")
@@ -134,9 +130,7 @@ namespace server.DataServices.Migrations
                 {
                     b.HasOne("server.Entities.UserCategory", "UserCategory")
                         .WithMany("CostAmounts")
-                        .HasForeignKey("UserCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserCategoryId");
 
                     b.Navigation("UserCategory");
                 });
@@ -145,9 +139,7 @@ namespace server.DataServices.Migrations
                 {
                     b.HasOne("API.Entities.AppUser", "AppUser")
                         .WithMany("UserCategories")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.Navigation("AppUser");
                 });

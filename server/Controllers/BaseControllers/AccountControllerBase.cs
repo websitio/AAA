@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace server.Controllers.BaseControllers
 {
     [ApiController]
-    public class AccountControllerBase
+      [Route("api/[controller]")]
+    public class AccountControllerBase : ControllerBase
     {
 
     }

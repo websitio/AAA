@@ -9,7 +9,7 @@ namespace server.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
             {
                 services.AddDbContext<DataContext>(options =>
-                {       options.UseSqlite(Environment.GetEnvironmentVariable("DefautConnection"));
+                {       options.UseSqlite(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
                        }
            );
        
