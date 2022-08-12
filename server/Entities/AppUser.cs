@@ -7,6 +7,9 @@ namespace Server.Entities
 {
     public class AppUser : AuditBase
     {
+
+        #region differed
+        /*
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -20,5 +23,16 @@ namespace Server.Entities
 
         public ICollection<UserCategory> UserCategories { get; set; } =
         new List<UserCategory>();
+        */
+        #endregion
+
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
+
+
+
     }
+        
 }

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Server.Interfaces;
 
-namespace API.Services
+namespace Server.Services
 {
     public class TokenService : ITokenService
     {
@@ -17,6 +17,7 @@ namespace API.Services
         public TokenService(IConfiguration config)
         {
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
+            double _expiryDays = Convert.ToDouble(config["DaysBeforeTokenExpires"]);
         }
 
         public string CreateToken(AppUser user)
@@ -30,7 +31,10 @@ namespace API.Services
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
+   
+
                 Subject = new ClaimsIdentity(claims),
+              
                 Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = creds
             };
