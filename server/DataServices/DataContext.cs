@@ -1,7 +1,7 @@
 ﻿using  Server.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace server.DataServices
+namespace Server.DataServices
 {
     public class DataContext : DbContext
     {

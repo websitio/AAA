@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Controllers.BaseControllers;
-using server.DataServices;
+using Server.DataServices;
 
 namespace API.Controllers
 {
@@ -18,7 +18,8 @@ namespace API.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<AppUser>>> 
+            GetUsers()
         {
             return await _context.Users.ToListAsync();
         }

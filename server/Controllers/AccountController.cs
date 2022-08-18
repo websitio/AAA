@@ -3,15 +3,15 @@ using Server.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using server.Controllers.BaseControllers;
-using server.DataServices;
+using Server.DataServices;
 using Server.Interfaces;
 using server.Models;
 using System.Security.Cryptography;
 using System.Text;
-using Server.Services;
+
 #endregion
 
-namespace server.Controllers
+namespace Server.Controllers
 {
 
     public class AccountController : AccountControllerBase
@@ -49,7 +49,7 @@ namespace server.Controllers
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+          Token = _tokenService.CreateToken(user)
             };
         }
 

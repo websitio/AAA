@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NavComponent } from './components/nav/nav.component'
 
 
 
@@ -15,15 +16,9 @@ export class AppComponent implements OnInit{
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-   this.getValues();
+ 
   }
   values: any;
 
-    getValues(){
-    this.http.get('/WeatherForecast')
-    .subscribe(
-                    response=> {this.values=response; }, (error) => {console.log(error);}
-                  );
-      }
-
+   
 }

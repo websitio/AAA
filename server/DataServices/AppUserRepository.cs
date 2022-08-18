@@ -1,9 +1,9 @@
 ﻿using Server.Entities;
 using Microsoft.EntityFrameworkCore;
-using server.Interfaces;
+using Server.Interfaces;
 using System.Linq;
 
-namespace server.DataServices
+namespace Server.DataServices
 {
     public class AppUserRepository : IUserRepository
     {
