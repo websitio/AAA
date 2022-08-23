@@ -36,6 +36,13 @@
                 "${workspaceFolder}/server/server.csproj"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
+        {
+            "label": "SplitTerminalonStartip",
+            "command": "${command:workbench.action.terminal.split}",
+            "type": "shell",
+            "problemMatcher": [],
+            "runOptions": { "runOn": "folderOpen" }
+          }
     ]
 }

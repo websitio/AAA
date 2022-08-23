@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NavComponent } from './components/nav/nav.component'
+import { User } from './models/user';
+import { AccountService } from './services/account.service';
 
 
 
@@ -11,14 +13,19 @@ import { NavComponent } from './components/nav/nav.component'
 })
 export class AppComponent implements OnInit{
 
-  title = 'client';
+  title = 'keycost client';
 
-  constructor(private http: HttpClient) {}
+  constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {
- 
+    this.setCurrentUser();
   }
-  values: any;
+    
+  setCurrentUser() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user);
+  }
 
-   
+
+
 }

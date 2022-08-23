@@ -1,0 +1,12 @@
+/*
+.navbar-brand {
+background-color: darkgreen;
+}
+
+.gbar {
+    background-color: darkgreen;
+
+}*/
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}
