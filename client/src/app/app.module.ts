@@ -11,16 +11,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
+// import {AppMaterialModule} from './components/shared/app-material.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
+    NavComponent,  
+    // AppMaterialModule,
     RegisterComponent, HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, BrowserAnimationsModule,   FormsModule,  BsDropdownModule.forRoot() // ComponentsModule
+    AppRoutingModule, HttpClientModule, BrowserAnimationsModule,   FormsModule,  
+ 
+    BsDropdownModule.forRoot() // ComponentsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
