@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
+import { ThemeService } from 'src/app/services/theme.service';
+import { Option } from 'src/app/models/option.model';
 
 @Component({
   selector: 'app-nav',
@@ -9,12 +12,22 @@ import { AccountService } from 'src/app/services/account.service';
 export class NavComponent implements OnInit {
   model: any = {};
    loggedIn!: boolean;
+   options$: Observable<Array<Option>> = this.themeService.getThemeOptions();
 
-  constructor(public accountService: AccountService) { }
+
+  constructor(public accountService: AccountService, private readonly themeService: ThemeService) { }
 
   ngOnInit(): void {
  // this.getCurrentUser();
+ this.themeService.setTheme("deeppurple-amber");
   }
+
+  themeChangeHandler(themeToSet) {
+    this.themeService.setTheme(themeToSet);
+  }
+
+
+
 
   login() {
     this.accountService.login(this.model).subscribe(response => {

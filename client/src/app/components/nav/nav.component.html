@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">Keycost App</a>
 
@@ -14,8 +14,8 @@
             </li>
         </ul>
 
-        <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
+        <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+            <a class="dropdown-toggle text-light" dropdownToggle>Welcome  {{user.username | titlecase}}</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
                 <a class="dropdown-item">Edit Profile</a>
                 <div class="dropdown-divider"></div>
@@ -39,8 +39,22 @@
                 class="form-control mr-sm-2" 
                 type="password" 
                 placeholder="Password">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login..</button>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Login..</button>
         </form>
     </div>
+
+    <!-- <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span>Dora</span>
+          <span class="spacer"></span>
+          <app-theme
+            [options]="options$ | async"
+            (themeChange)="themeChangeHandler($event)">
+          </app-theme>
+        </mat-toolbar-row>
+      </mat-toolbar> -->
+
+
+
 
 </nav>

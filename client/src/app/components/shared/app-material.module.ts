@@ -1,30 +1,31 @@
 import { NgModule } from "@angular/core";
-import { MatSidenavModule } from '@angular/material/sidenav';
+//import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from "@angular/material/button";
+// import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
-import { MatTabsModule } from '@angular/material/tabs';
+ // import { MatTabsModule } from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from "@angular/material/select";
 
-import { MatSliderModule } from '@angular/material/slider';
-import { MatRadioModule } from '@angular/material/radio';
+// import { MatSliderModule } from '@angular/material/slider';
+// import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [MatButtonModule,
+  imports: [
+    // MatButtonModule,
     MatIconModule,  MatSelectModule,
     MatListModule,
     MatMenuModule,
     MatToolbarModule,
-    MatSidenavModule,
+  //  MatSidenavModule,
     MatListModule,
     MatInputModule,
-    MatTabsModule,
-    MatRadioModule,
+    // MatTabsModule,
+   // MatRadioModule,
 
  
     FormsModule,
@@ -32,13 +33,17 @@ import { FormsModule } from '@angular/forms';
   ],
 
   exports: [
-    MatButtonModule,
+    // MatButtonModule,
     MatIconModule,  MatSelectModule,
     MatMenuModule,
     MatToolbarModule,
-    MatSidenavModule, MatInputModule,
-    MatListModule,MatTabsModule, MatSliderModule,
-    FormsModule, MatRadioModule
+    //MatSidenavModule, 
+    MatInputModule,
+    MatListModule,
+    // MatTabsModule, 
+    // MatSliderModule,
+    FormsModule 
+    // MatRadioModule
 
 
   ]
