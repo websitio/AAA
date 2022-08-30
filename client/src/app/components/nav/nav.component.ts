@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
-import { ThemeService } from 'src/app/services/theme.service';
-import { Option } from 'src/app/models/option.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -12,33 +10,45 @@ import { Option } from 'src/app/models/option.model';
 export class NavComponent implements OnInit {
   model: any = {};
    loggedIn!: boolean;
-   options$: Observable<Array<Option>> = this.themeService.getThemeOptions();
+    // options$: Observable<Array<Option>> = this.themeService.getThemeOptions();
+    //materail related
 
 
-  constructor(public accountService: AccountService, private readonly themeService: ThemeService) { }
+  constructor(public accountService: AccountService, private router: Router,  ) { }
 
   ngOnInit(): void {
  // this.getCurrentUser();
- this.themeService.setTheme("deeppurple-amber");
+ // this.themeService.setTheme("deeppurple-amber");
   }
 
+/*
   themeChangeHandler(themeToSet) {
     this.themeService.setTheme(themeToSet);
   }
+  */ 
+ //material related
+
+ login() {
+  this.accountService.login(this.model).subscribe(response => {
+    this.router.navigateByUrl('/categories');
+  }, error => {
+    console.log(error);
+  
+  })
+}
 
 
-
-
-  login() {
-    this.accountService.login(this.model).subscribe(response => {
-      console.log(response);
-    }, error => {
-      console.log(error);
-    })
-  }
+  // login() {
+  //   this.accountService.login(this.model).subscribe(response => {
+  //     console.log(response);
+  //   }, error => {
+  //     console.log(error);
+  //   })
+  // }
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 
 

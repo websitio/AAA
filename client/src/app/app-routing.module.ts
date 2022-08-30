@@ -10,12 +10,11 @@ import { LearnmoreComponent } from './components/learnmore/learnmore.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'costs', component: CostsListComponent},
-  {path: 'costs/{id}', component: CostsDetailComponent},
+  {path: 'costs/:id', component: CostsDetailComponent},
   {path: 'categories', component: CategoriesListComponent},
-  {path: 'categories/{id}', component: CategoriesDetailComponent},
+  {path: 'categories/:id', component: CategoriesDetailComponent},
   {path: 'learn', component: LearnmoreComponent},
-  {path: '**', component: HomeComponent, pathMatch : 'full'},
-
+  {path: '**', component: HomeComponent, pathMatch : 'full'}
 
 ];
 
