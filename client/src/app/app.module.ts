@@ -11,8 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
  import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
- import {AppMaterialModule} from './components/shared/app-material.module';
-import { ThemeComponent } from './components/theme/theme.component';
+ // import {AppMaterialModule} from './components/shared/app-material.module';
+// import { ThemeComponent } from './components/theme/theme.component';
+import { LearnmoreComponent } from './components/learnmore/learnmore.component';
+import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { CategoriesEditComponent } from './components/categories/categories-edit/categories-edit.component';
+import { CategoriesDetailComponent } from './components/categories/categories-detail/categories-detail.component';
+import { CostsListComponent } from './components/costs/costs-list/costs-list.component';
+import { CostsDetailComponent } from './components/costs/costs-detail/costs-detail.component';
+import { CostsEditComponent } from './components/costs/costs-edit/costs-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +27,18 @@ import { ThemeComponent } from './components/theme/theme.component';
     NavComponent,  
     RegisterComponent, 
     HomeComponent, 
-    ThemeComponent
+    LearnmoreComponent,
+    CategoriesDetailComponent,
+    CategoriesListComponent,
+    CategoriesEditComponent,
+    CostsDetailComponent,
+    CostsEditComponent,
+    CostsListComponent
+   // ThemeComponent
   ],
   imports: [
     BrowserModule,   
-    AppMaterialModule,
+    //AppMaterialModule,
     AppRoutingModule, 
     HttpClientModule, 
     BrowserAnimationsModule,   

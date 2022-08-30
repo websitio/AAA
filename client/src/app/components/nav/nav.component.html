@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
     <div class="container">
-        <a class="navbar-brand" href="#">Keycost App</a>
+        <a class="navbar-brand" routerLink="/">Keycost</a>
 
         <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
             <li class="nav-item">
-                <a class="nav-link" href="#">Payments</a>
+                <a class="nav-link" routerLink="/costs">Costs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cost Categories</a>
+                <a class="nav-link" routerlLink ="/categories">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Spreadsheets</a>
+                <a class="nav-link" routerLink="/">Spreadsheets</a>
             </li>
         </ul>
 
