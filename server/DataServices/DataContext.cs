@@ -11,7 +11,8 @@ namespace Server.DataServices
        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {                optionsBuilder.UseSqlite(_config.GetConnectionString("DefautConnection"));            }
     
-             public DbSet<AppUser> Users { get; set; }
-
+             public DbSet<AppUser> AppUsers { get; set; }
+             public DbSet<UserCategory> UserCategories {get; set;}
+            public DbSet<CostAmount> CostAmounts {get; set;}
     }
 }

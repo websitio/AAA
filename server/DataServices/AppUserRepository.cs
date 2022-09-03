@@ -16,12 +16,12 @@ namespace Server.DataServices
       
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.AppUsers.ToListAsync();
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.AppUsers.FindAsync(id);
         }
 
         #region 091@5 EFinternal
