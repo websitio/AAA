@@ -12,7 +12,7 @@ namespace Server.DataServices
             {                optionsBuilder.UseSqlite(_config.GetConnectionString("DefautConnection"));            }
     
              public DbSet<AppUser> AppUsers { get; set; }
-             public DbSet<UserCategory> UserCategories {get; set;}
+             public DbSet<CostCategory> UserCategories {get; set;}
             public DbSet<CostAmount> CostAmounts {get; set;}
     }
 }

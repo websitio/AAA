@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using server.DataServices;
 using Server.DataServices;
 using Server.Interfaces;
 using Server.Services;
@@ -11,7 +12,8 @@ namespace server.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
             {
             services.AddScoped<ITokenService, TokenService>();
-            services.AddDbContext<DataContext>(options =>
+            services.AddScoped<ICostAmountRepository, CostsRepository>();
+                        services.AddDbContext<DataContext>(options =>
                 {       options.UseSqlite(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
                        }
            );

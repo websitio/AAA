@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Server.Entities
 {
-    public class UserCategory : AuditBase
+    public class CostCategory : AuditBase
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]   

@@ -20,8 +20,8 @@ namespace Server.Entities
         public byte[] PasswordSalt { get; set; }
 
 
-        public ICollection<UserCategory> UserCategories {get; set;}
-        = new List<UserCategory>();
+        public ICollection<CostCategory> UserCategories {get; set;}
+        = new List<CostCategory>();
 
         public ICollection<CostAmount> CostAmounts {get; set;}
        = new List<CostAmount>();

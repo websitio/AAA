@@ -18,9 +18,9 @@ namespace Server.Entities
 
 
 
-        [ForeignKey("UserCategoryId")]
-        public UserCategory UserCategory { get; set; }
-        public int UserCategoryId { get; set; }
+        [ForeignKey("CostCategoryId")]
+        public CostCategory CostCategory { get; set; }
+        public int CostCategoryId { get; set; }
 
 
 
