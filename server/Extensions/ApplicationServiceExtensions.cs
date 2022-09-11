@@ -13,6 +13,7 @@ namespace server.Extensions
             {
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<ICostAmountRepository, CostsRepository>();
+            services.AddScoped<IUserRepository, AppUserRepository>();
                         services.AddDbContext<DataContext>(options =>
                 {       options.UseSqlite(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
                        }

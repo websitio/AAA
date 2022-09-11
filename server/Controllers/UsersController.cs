@@ -1,31 +1,30 @@
 ﻿using Server.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using server.Controllers.BaseControllers;
-using Server.DataServices;
+using Server.Interfaces;
 
 namespace API.Controllers
 {
     public class UsersController : UserControllerBase
     {
-        private readonly DataContext _context;
-        public UsersController(DataContext context)
-        {            _context = context;        }
+        public IUserRepository _repo { get; }
+        
+        public UsersController(IUserRepository repo)
+        {          
+            _repo = repo;
+          }
 
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<AppUser>>> 
-            GetUsers()
-        {
-            return await _context.AppUsers.ToListAsync();
-        }
+       public async Task<ActionResult<List<AppUser>>> GetUsers()
+            {
+                  var users=   await _repo.GetUsersAsync();
+                return Ok(users);
+            }
 
-        [Authorize]
-        [HttpGet("{id}")]
+           [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUser(int id)
         {
-            return await _context.AppUsers.FindAsync(id);
+            return await _repo.GetUserByIdAsync(id);
         }
     }
 }

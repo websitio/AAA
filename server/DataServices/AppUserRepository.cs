@@ -18,7 +18,23 @@ namespace Server.DataServices
         public async Task<AppUser> GetUserByIdAsync(int id)
         {
             return await _context.AppUsers.FindAsync(id);
-              }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*🟨*/
         #region 091@5 EFinternal
         public async Task<bool> SaveAllChangesAsync()
