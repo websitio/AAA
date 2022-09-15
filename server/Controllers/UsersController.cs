@@ -10,14 +10,11 @@ namespace API.Controllers
         public IUserRepository _repo { get; }
         
         public UsersController(IUserRepository repo)
-        {          
-            _repo = repo;
-          }
+        {       _repo = repo;          }
 
         [HttpGet]
        public async Task<ActionResult<List<AppUser>>> GetUsers()
-            {
-                  var users=   await _repo.GetUsersAsync();
+            {   var users=   await _repo.GetUsersAsync();
                 return Ok(users);
             }
 

@@ -1,25 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Server.Entities;
 using Server.Interfaces;
 
 namespace server
 {
 
     [Route("api/[controller]")]
-    public class CostController : Controller
+    public class CostsController : Controller
     {
         private readonly ICostAmountRepository _repo;
        
-         public CostController(ICostAmountRepository repo)
+         public CostsController(ICostAmountRepository repo)
          {
            _repo = repo;
         }
 
    
+   [HttpGet]
+   public async Task<ActionResult<List<CostAmount>>> GetCosts()
+   {
+    var usercosts = await _repo.GetCostAmountsAsync();
+    return Ok(usercosts);
+   }
 
 
-
-
-
-
+[HttpGet("{id}")]
+public async Task<ActionResult<CostAmount>> GetCost(int id)
+{
+return await _repo.GetCostAmountByIdAsync(id);
+}
     }
 }
