@@ -2,7 +2,7 @@
 using Server.Entities;
 using Server.Interfaces;
 
-namespace server
+namespace Server
 {
 
     [Route("api/[controller]")]

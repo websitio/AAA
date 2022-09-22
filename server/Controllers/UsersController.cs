@@ -1,6 +1,6 @@
 ﻿using Server.Entities;
 using Microsoft.AspNetCore.Mvc;
-using server.Controllers.BaseControllers;
+using Server.Controllers.BaseControllers;
 using Server.Interfaces;
 
 namespace API.Controllers

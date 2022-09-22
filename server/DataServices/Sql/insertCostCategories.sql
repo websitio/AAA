@@ -1,5 +1,5 @@
 
-insert into [UserCategories]
+insert into [CostCategories]
 ([AppUserId],[Name],[Description],[CreateBy],[CreatedOn],[UpdatedOn])
 VALUES
 ("1", "Category1","Cat1 description", "05/11/2022","05/11/2022","05/11/2022"),
