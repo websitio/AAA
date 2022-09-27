@@ -20,7 +20,9 @@ namespace server.DataServices
         
         public async Task<IEnumerable<CostCategory>> GetCostCategoriesAsync()
         {
-            return await _context.CostCategories.ToListAsync();
+            return await _context.CostCategories.
+            Include(costs=>costs.CostAmounts).
+            ToListAsync();
         }
     }
 }

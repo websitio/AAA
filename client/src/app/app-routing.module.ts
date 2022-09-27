@@ -6,16 +6,20 @@ import { CostsDetailComponent } from './components/costs/costs-detail/costs-deta
 import { CostsListComponent } from './components/costs/costs-list/costs-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { LearnmoreComponent } from './components/learnmore/learnmore.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: '', runGuardsAndResolvers: 'always',
+canActivate: [AuthGuard],
+children: [
   {path: 'costs', component: CostsListComponent},
   {path: 'costs/:id', component: CostsDetailComponent},
   {path: 'categories', component: CategoriesListComponent},
   {path: 'categories/:id', component: CategoriesDetailComponent},
   {path: 'learn', component: LearnmoreComponent},
+]},
   {path: '**', component: HomeComponent, pathMatch : 'full'}
-
 ];
 
 @NgModule({

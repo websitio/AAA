@@ -1,0 +1,62 @@
+[
+  {
+    "stmt": "SELECT * FROM CostAmounts;",
+    "header": [
+      "Id",
+      "AppUserId",
+      "Cost",
+      "CostCategoryId",
+      "CreateBy",
+      "CreatedOn",
+      "Description",
+      "UpdateBy",
+      "UpdatedOn"
+    ],
+    "rows": [
+      [
+        "1",
+        "1",
+        "5",
+        "1",
+        "05/11/2022",
+        "05/11/2022",
+        "Cost description",
+        "NULL",
+        "05/11/2022"
+      ],
+      [
+        "2",
+        "2",
+        "55",
+        "2",
+        "05/11/2022",
+        "05/11/2022",
+        "Cost description",
+        "NULL",
+        "05/11/2022"
+      ],
+      [
+        "3",
+        "3",
+        "25",
+        "2",
+        "05/11/2022",
+        "05/11/2022",
+        "Cost description",
+        "NULL",
+        "05/11/2022"
+      ],
+      [
+        "4",
+        "4",
+        "15",
+        "4",
+        "05/11/2022",
+        "05/11/2022",
+        "Cost description",
+        "NULL",
+        "05/11/2022"
+      ]
+    ]
+  }
+]

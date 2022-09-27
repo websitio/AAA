@@ -18,9 +18,9 @@ namespace Server.Entities
 
 
 
-        [ForeignKey("CostCategoryId")]
-        public CostCategory CostCategory { get; set; }
-        public int CostCategoryId { get; set; }
+        // [ForeignKey("CostCategoryId")]
+        // public CostCategory CostCategory { get; set; }
+        // public int CostCategoryId { get; set; }
 
 
 

@@ -20,6 +20,8 @@ import { CategoriesDetailComponent } from './components/categories/categories-de
 import { CostsListComponent } from './components/costs/costs-list/costs-list.component';
 import { CostsDetailComponent } from './components/costs/costs-detail/costs-detail.component';
 import { CostsEditComponent } from './components/costs/costs-edit/costs-edit.component';
+// import {ToastrModule} from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { CostsEditComponent } from './components/costs/costs-edit/costs-edit.com
     HttpClientModule, 
     BrowserAnimationsModule,   
     FormsModule,  
-    BsDropdownModule.forRoot() ,
+    BsDropdownModule.forRoot() 
+    // ToastrModule.forRoot({positionClass: 'toast-top-right'})
     
     //ComponentsModule
   ],
