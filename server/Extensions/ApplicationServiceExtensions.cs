@@ -4,7 +4,7 @@ using Server.DataServices;
 using Server.Interfaces;
 using Server.Services;
 
-namespace server.Extensions
+namespace Server.Extensions
 {
     public static class ApplicationServiceExtensions
     {
