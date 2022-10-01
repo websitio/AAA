@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Server.Controllers.BaseControllers;
 using Server.Interfaces;
 
-namespace API.Controllers
+namespace Server.Controllers
 {
+   [Route("api/[controller]")]
     public class UsersController : UserControllerBase
     {
         public IUserRepository _repo { get; }

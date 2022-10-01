@@ -1,4 +1,4 @@
-﻿namespace Server.Models
+﻿namespace Server.DtoModels
 {
     public class LoginDto
     {

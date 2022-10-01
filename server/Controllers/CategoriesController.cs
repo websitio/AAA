@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Server.Entities;
 using Server.Interfaces;
 
-namespace server.Controllers
+namespace Server.Controllers
 {
      [Route("api/[controller]")]
     public class CategoriesController : Controller

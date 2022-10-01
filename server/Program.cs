@@ -1,6 +1,6 @@
 
 /* using server; var app = Startup.InitializeApp(args); app.Run(); */
-using server.Extensions;
+using Server.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationServices(builder.Configuration);

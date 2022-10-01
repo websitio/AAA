@@ -3,7 +3,7 @@ using Server.DataServices;
 using Server.Entities;
 using Server.Interfaces;
 
-namespace server.DataServices
+namespace Server.DataServices
 {
     public class CategoriesRepository : ICostCategoryRepository
     {

@@ -2,10 +2,10 @@
 using Server.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using server.Controllers.BaseControllers;
+using Server.Controllers.BaseControllers;
 using Server.DataServices;
 using Server.Interfaces;
-using server.Models;
+using Server.DtoModels;
 using System.Security.Cryptography;
 using System.Text;
 
