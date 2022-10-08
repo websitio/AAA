@@ -6,10 +6,10 @@ namespace Server.Helpers
 {
     public class AutoMapperProfiles : Profile
     {
-     
-        public AutoMapperProfiles()
+             public AutoMapperProfiles()
             {
                 CreateMap<AppUser, MemberDto>();
+                CreateMap<CostCategory, CostCategoryDto>();
             }
 
 }

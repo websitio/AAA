@@ -4,26 +4,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Entities
 {
-    public class AppUser : AuditBase
+   /*💠*/  public class AppUser : AuditBase    
     {
          
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+         /*🔸*/ public int Id { get; set; }
         
         [Required]  
         [MaxLength(50)]
-        public string UserName { get; set; }
+        /*🔸*/ public string UserName { get; set; }
         
-        public byte[] PasswordHash { get; set; }
+        /*🔸*/ public byte[] PasswordHash { get; set; }
         
-        public byte[] PasswordSalt { get; set; }
+        /*🔸*/ public byte[] PasswordSalt { get; set; }
 
 
         public ICollection<CostCategory> UserCategories {get; set;}
         = new List<CostCategory>();
 
-        public ICollection<CostAmount> CostAmounts {get; set;}
+       public ICollection<CostAmount> CostAmounts {get; set;}
        = new List<CostAmount>();
 
 
@@ -31,3 +31,15 @@ namespace Server.Entities
     }
         
 }
+
+
+/*
+
+♐ ▲ ▼ ◀ ▶ 🚫⛔⚠️💀💥🔥 
+🔴🟥 🔶 🟠🟧 🔷 🟡🟨 🔸 🟢	🟩🔹 🔵🟦🔺🟣🟪🔻 🟤🟫💠 		🔴 🟢🔵💴💵🏧💳💰💸🔸 🔸 🔸 🔸
+
+
+
+
+
+*/

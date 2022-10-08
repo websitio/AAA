@@ -15,9 +15,9 @@ namespace Server.Extensions
             services.AddScoped<ICostCategoryRepository, CategoriesRepository>();
             services.AddScoped<IUserRepository, AppUserRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
-                        services.AddDbContext<DataContext>(options =>
-                {      options.UseSqlite(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
-                       }
+
+            services.AddDbContext<DataContext>(options =>
+                         {  options.UseSqlite(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));  }
            );
        
                 services.AddControllers();

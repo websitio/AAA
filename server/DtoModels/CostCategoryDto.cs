@@ -1,4 +1,4 @@
-namespace server.DtoModels
+namespace Server.DtoModels
 {
     public class CostCategoryDto
     {

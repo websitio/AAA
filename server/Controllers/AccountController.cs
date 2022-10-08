@@ -25,10 +25,6 @@ namespace Server.Controllers
             _context = context;
         }
 
-
-
-
-
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
                     {
@@ -44,7 +40,7 @@ namespace Server.Controllers
 
             _context.AppUsers.Add(user);
 
-            await _context.SaveChangesAsync();
+                            await _context.SaveChangesAsync();
 
             return new UserDto
             {
