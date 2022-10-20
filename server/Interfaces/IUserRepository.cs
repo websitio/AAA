@@ -15,7 +15,9 @@ namespace Server.Interfaces
 
     /*⚡*/ void UpdateUser(AppUser user);
   
-  
+    /*⚡*/ Task<IEnumerable<MemberDto>> GetMembersAsync();
+  /*⚡*/  Task<MemberDto> GetMemberAsync(string username);
+
   
   
   // IQueryable<AppUser> GetUsersQ();

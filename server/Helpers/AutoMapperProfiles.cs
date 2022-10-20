@@ -2,6 +2,7 @@ using Server.Entities;
 using AutoMapper;
 using Server.DtoModels;
 
+
 namespace Server.Helpers
 {
     public class AutoMapperProfiles : Profile
@@ -10,8 +11,9 @@ namespace Server.Helpers
             {
                 CreateMap<AppUser, MemberDto>();
                 CreateMap<CostCategory, CostCategoryDto>();
+                CreateMap<CostAmount, CostAmountDto>();
             }
-
 }
 
 }
+

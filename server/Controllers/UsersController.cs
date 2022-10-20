@@ -17,12 +17,22 @@ namespace Server.Controllers
 
 
 
+
+
      [HttpGet]  /*⚡*/
      public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
             {   var users=   await _repo.GetUsersAsync();
                  var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
                  return Ok(usersToReturn);
             }
+
+
+
+
+
+
+
+
 
 
        [HttpGet("{id}")] /*⚡*/

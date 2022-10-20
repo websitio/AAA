@@ -4,6 +4,7 @@ using Server.Interfaces;
 using Server.DtoModels;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
+using System.Linq;
 
 namespace Server.DataServices
 {
@@ -16,7 +17,12 @@ namespace Server.DataServices
 
 /*⚡*/
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
-        {               return await _context.AppUsers.ToListAsync();           }
+        {               return await _context.AppUsers.
+                        Include(costs=>costs.CostAmounts).
+                        ToListAsync();
+        
+             }
+
 
 
 /*⚡*/
@@ -48,7 +54,30 @@ public async Task <MemberDto>GetUserByUsernameAsync(string username)
         public void UpdateUser(AppUser user)
         {                     _context.Entry(user).State = EntityState.Modified;     }
 
-    
+
+      /*⚡*/  public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+        {
+          return await _context.AppUsers.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).ToListAsync();
+        }
+
+
+      /*⚡*/  public async Task<MemberDto> GetMemberAsync(string username)
+        {
+         //   throw new NotImplementedException();
+                        return await _context.AppUsers
+                                                .Where(x=> x.UserName==username)
+        /*097@5m*/                      .Select(user=> new MemberDto
+                          {
+                                        Id=user.Id,
+                                        Username=user.UserName
+                        }
+                        
+                        ).SingleOrDefaultAsync();
+                                
+
+        }
+
+
         #endregion
 
         #region pre async stubs
