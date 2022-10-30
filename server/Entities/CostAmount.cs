@@ -15,6 +15,7 @@ namespace Server.Entities
         [MaxLength(150)]
         public string? Description { get; set; }
 
+#region comments
         // [ForeignKey("CostCategoryId")]
         // public CostCategory CostCategory { get; set; }
         // public int CostCategoryId { get; set; }
@@ -23,8 +24,8 @@ namespace Server.Entities
   // Logially impossible to know which of the categries 
   // the logged in user owns is applied to each cost without a CostCategoryId
   // my hand rolled seed data lulled me to laziness for a short while
-
-
+#endregion
+    
         [ForeignKey("CostCategoryId")]
         public int CostCategoryId { get; set; }
 

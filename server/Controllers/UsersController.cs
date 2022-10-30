@@ -16,23 +16,16 @@ namespace Server.Controllers
         {       _repo = repo;          _mapper = mapper; }
 
 
-
-
-
      [HttpGet]  /*⚡*/
      public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
-            {   var users=   await _repo.GetUsersAsync();
+            { 
+          /*          var users = await _repo.GetMembersAsync();
+                return Ok(users);*/
+                
+              var users=   await _repo.GetUsersAsync();
                  var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
-                 return Ok(usersToReturn);
+                 return Ok(usersToReturn); 
             }
-
-
-
-
-
-
-
-
 
 
        [HttpGet("{id}")] /*⚡*/
