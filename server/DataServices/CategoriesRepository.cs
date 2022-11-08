@@ -11,18 +11,20 @@ namespace Server.DataServices
 
         public CategoriesRepository(DataContext context)
         {            _context = context;        }
-        
-          /*⚡*/   public async Task<CostCategory> GetCostCategoryByIdAsync(int id)
+
+        public async Task<CostCategory> GetCostCategoryByIdAsync(int id)
         {
                 return await _context.CostCategories.FindAsync(id);
         } 
-        
-        
-         /*⚡*/  public async Task<IEnumerable<CostCategory>> GetCostCategoriesAsync()
+
+
+         public async Task<IEnumerable<CostCategory>> GetCostCategoriesAsync()
         {
             return await _context.CostCategories.
             Include(costs=>costs.CostAmounts).
             ToListAsync();
         }
+
+
     }
 }

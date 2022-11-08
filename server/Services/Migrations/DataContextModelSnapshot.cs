@@ -50,16 +50,13 @@ namespace server.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppUsers");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Server.Entities.CostAmount", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Cost")
@@ -86,11 +83,9 @@ namespace server.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
-
                     b.HasIndex("CostCategoryId");
 
-                    b.ToTable("CostAmounts");
+                    b.ToTable("Costs");
                 });
 
             modelBuilder.Entity("Server.Entities.CostCategory", b =>
@@ -128,24 +123,18 @@ namespace server.Services.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("CostCategories");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Server.Entities.CostAmount", b =>
                 {
-                    b.HasOne("Server.Entities.AppUser", "AppUser")
-                        .WithMany("CostAmounts")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Server.Entities.CostCategory", null)
+                    b.HasOne("Server.Entities.CostCategory", "CostCategory")
                         .WithMany("CostAmounts")
                         .HasForeignKey("CostCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
+                    b.Navigation("CostCategory");
                 });
 
             modelBuilder.Entity("Server.Entities.CostCategory", b =>
@@ -161,8 +150,6 @@ namespace server.Services.Migrations
 
             modelBuilder.Entity("Server.Entities.AppUser", b =>
                 {
-                    b.Navigation("CostAmounts");
-
                     b.Navigation("UserCategories");
                 });
 

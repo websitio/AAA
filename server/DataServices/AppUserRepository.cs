@@ -15,11 +15,13 @@ namespace Server.DataServices
 
 
  public async Task<IEnumerable<AppUser>> GetUsersAsync() //⚡
-        {               return await _context.AppUsers.
-                        Include(costs=>costs.CostAmounts).
-                        ToListAsync();
-         }
+        {               return await _context.AppUsers.ToListAsync();
+        }
 
+      // public Task<IEnumerable<AppUser>> GetUsersAsync()
+      //   {
+      //       throw new NotImplementedException();
+      //   }
 
  public async Task<AppUser> GetUserByIdAsync(int id) //⚡
         {
@@ -60,6 +62,8 @@ public async Task<MemberDto> GetMemberAsync(string username) //⚡
                           {  Id=user.Id,   Username=user.UserName   } ).SingleOrDefaultAsync();
 
         }
+
+  
 
         #region pre async stubs
         //public IEnumerable<AppUser> GetUsers()

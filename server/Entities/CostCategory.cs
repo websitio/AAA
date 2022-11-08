@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Server.Entities
 {
+    [Table("Categories")]
     public class CostCategory : AuditBase
     {
         [Key]
@@ -16,8 +17,11 @@ namespace Server.Entities
          
         [MaxLength(150)]
         public string Description { get; set; }
-        public AppUser AppUser { get; set; }
+
+        [Required]
+        [ForeignKey("CostCategoryId")]
         public int AppUserId { get; set; }
+    
 
         public ICollection<CostAmount> CostAmounts { get; set; } =
         new List<CostAmount>();

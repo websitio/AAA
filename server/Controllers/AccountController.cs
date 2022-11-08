@@ -16,14 +16,12 @@ namespace Server.Controllers
 
     public class AccountController : AccountControllerBase
     {
-
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
         public AccountController(DataContext context, ITokenService tokenService)
         {
             _tokenService = tokenService;
-            _context = context;
-        }
+            _context = context;        }
 
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
@@ -39,18 +37,12 @@ namespace Server.Controllers
             };
 
             _context.AppUsers.Add(user);
-
-                            await _context.SaveChangesAsync();
-
+              await _context.SaveChangesAsync();
             return new UserDto
             {
                 Username = user.UserName,
-          Token = _tokenService.CreateToken(user)
-            };
+          Token = _tokenService.CreateToken(user)            };
         }
-
-
-
 
         private async Task<bool> UserExists(string username)
         {
