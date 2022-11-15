@@ -6,8 +6,10 @@ namespace Server.DtoModels
 
         public string Username { get; set; }
 
-        public ICollection<CostAmountDto> Categories {get; set;}
-        public ICollection<CostCategoryDto> Costs { get; set; }
+   public ICollection<CostCategoryDto> Costs { get; set; }
+
+    //   public ICollection<CostAmountDto> Categories {get; set;}
+     
      
     }
 }

@@ -19,7 +19,7 @@ namespace Server.Entities
         public string Description { get; set; }
 
         [Required]
-        [ForeignKey("CostCategoryId")]
+        [ForeignKey("AppUserId")]
         public int AppUserId { get; set; }
     
 

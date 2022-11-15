@@ -5,26 +5,28 @@ namespace Server.Interfaces
 {
  public interface IUserRepository 
  {
-/*⚡*/  Task<IEnumerable<AppUser>>  GetUsersAsync();
+/*⚡*/  Task<IEnumerable<AppUser>>  
+            GetUsersAsync();
 
-  /*⚡*/ Task<AppUser> GetUserByIdAsync(int id);
+/*⚡*/  Task<AppUser> 
+            GetUserByIdAsync(int id);
 
- /*⚡*/ Task<MemberDto> GetUserByUsernameAsync(string username);
+/*⚡*/  Task<AppUser> 
+            GetUserByUsernameAsync(string username);
   
-   /*⚡*/ Task<bool> SaveAllChangesAsync();
+/*⚡*/  Task<bool> 
+            SaveAllChangesAsync();
 
-    /*⚡*/ void UpdateUser(AppUser user);
+/*⚡*/  void 
+            UpdateUser(AppUser user);
 
-    
-  
-    /*⚡*/ Task<IEnumerable<MemberDto>> GetMembersAsync();
+ /*⚡*/  Task<IEnumerable<MemberDto>> 
+            GetMembersAsync();
 
-  /*⚡*/  Task<MemberDto> GetMemberAsync(string username);
-
-  
-  
-  // IQueryable<AppUser> GetUsersQ();
-
-
+/*⚡*/  Task<MemberDto> 
+            GetMemberAsync(string username);
+                                                                                                              #region other
+    // IQueryable<AppUser> GetUsersQ();
+    #endregion
     }
 }

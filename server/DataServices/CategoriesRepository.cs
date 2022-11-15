@@ -5,13 +5,14 @@ using Server.Interfaces;
 
 namespace Server.DataServices
 {
-    public class CategoriesRepository : ICostCategoryRepository
+    public class CategoriesRepository // : ICostCategoryRepository
     {
         public DataContext _context { get; }
 
         public CategoriesRepository(DataContext context)
         {            _context = context;        }
 
+/*
         public async Task<CostCategory> GetCostCategoryByIdAsync(int id)
         {
                 return await _context.CostCategories.FindAsync(id);
@@ -24,7 +25,7 @@ namespace Server.DataServices
             Include(costs=>costs.CostAmounts).
             ToListAsync();
         }
-
+*/
 
     }
 }

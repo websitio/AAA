@@ -13,8 +13,8 @@ namespace Server.DataServices
             
             ).LogTo(Console.WriteLine,LogLevel.Information);            }
     
-         public DbSet<AppUser> AppUsers { get; set; }
-         public DbSet<CostCategory> CostCategories {get; set;}
-         public DbSet<CostAmount> CostAmounts {get; set;}
+         public DbSet<AppUser> Users { get; set; }
+      //   public DbSet<CostCategory> CostCategories {get; set;}
+      //   public DbSet<CostAmount> CostAmounts {get; set;}
     }
 }

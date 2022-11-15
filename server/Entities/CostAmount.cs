@@ -11,6 +11,7 @@ namespace Server.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]      
         public int Id { get; set; }
+        
         public decimal Cost { get; set; }
          
         [MaxLength(150)]

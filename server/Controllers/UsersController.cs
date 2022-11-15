@@ -3,6 +3,7 @@ using Server.Controllers.BaseControllers;
 using Server.Interfaces;
 using Server.DtoModels;
 using AutoMapper;
+using Server.Entities;
 
 namespace Server.Controllers
 {
@@ -15,24 +16,64 @@ namespace Server.Controllers
         public UsersController(IUserRepository repo, IMapper mapper)
         {       _repo = repo;          _mapper = mapper; }
 
-
-     [HttpGet]  /*⚡*/
-     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
-            { 
-          /*          var users = await _repo.GetMembersAsync();
-                return Ok(users);*/
+#region old newer way
+    //  [HttpGet]  /*⚡*/
+    //  public async Task<ActionResult<IEnumerable<MemberDto>>> 
+    //  GetUsers()
+    //         { 
+    //       /*   var users = await _repo.GetMembersAsync();   return Ok(users);*/
                 
-              var users=   await _repo.GetUsersAsync();
-                 var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
-                 return Ok(usersToReturn); 
+    //           var users=   await _repo.GetUsersAsync();
+    //           var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
+    //              return Ok(usersToReturn); 
+    //         }
+#endregion
+
+
+
+[HttpGet]  /*⚡*/
+     public async Task<ActionResult<IEnumerable<AppUser>>> 
+     GetUsers()
+            { 
+        
+                var users= await _repo.GetUsersAsync();
+               return Ok(users);
             }
 
 
-       [HttpGet("{id}")] /*⚡*/
-       public async Task<ActionResult<MemberDto>> GetUser(string username)
+
+
+
+ [HttpGet("{username}")] /*⚡*/
+       public async Task<ActionResult<AppUser>> 
+       GetUser(string username)
         {
-            var user =await _repo.GetUserByUsernameAsync(username);
-            return _mapper.Map<MemberDto>(user);
+            return await _repo.GetUserByUsernameAsync(username);
+      
         }
+
+
+
+
+
+
+
+
+#region 
+    //    [HttpGet("{id}")] /*⚡*/
+    //    public async Task<ActionResult<MemberDto>> 
+    //    GetUser(string username)
+    //     {
+    //         var user =await _repo.GetUserByUsernameAsync(username);
+    //         return _mapper.Map<MemberDto>(user);
+    //     }
+
+#endregion
+
+
+
+
+
+
     }
 }
