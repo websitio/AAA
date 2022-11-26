@@ -7,13 +7,13 @@ namespace Server.Helpers
 {
     public class AutoMapperProfiles : Profile
     {
-             public AutoMapperProfiles()
-            {
-                CreateMap<AppUser, MemberDto>();
-                CreateMap<CostCategory, CostCategoryDto>();
-                CreateMap<CostAmount, CostAmountDto>();
-            }
-}
+        public AutoMapperProfiles()
+        {
+            CreateMap<AppUser, MemberDto>();
+            CreateMap<Category, CostCategoryDto>();
+            CreateMap<Cost, CostAmountDto>();
+        }
+    }
 
 }
 

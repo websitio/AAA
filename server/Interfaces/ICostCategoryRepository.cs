@@ -5,13 +5,13 @@ namespace Server.Interfaces
 {
 
 
-public interface ICostCategoryRepository
-{
-    
-    Task<CostCategory> GetCostCategoryByIdAsync(int id);
+    public interface ICostCategoryRepository
+    {
 
-    Task<IEnumerable<CostCategory>> GetCostCategoriesAsync();
+        Task<Category> GetCostCategoryByIdAsync(int id);
 
-}
+        Task<IEnumerable<Category>> GetCostCategoriesAsync();
+
+    }
 
 }

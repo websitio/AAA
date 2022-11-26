@@ -9,25 +9,25 @@ namespace Server.Controllers
     public class CostsController : Controller
     {
         private readonly ICostAmountRepository _repo;
-       
-                 public CostsController(ICostAmountRepository repo)
-                      {
-                                 _repo = repo;
-                         }
 
-   
-   [HttpGet]
-   public async Task<ActionResult<List<CostAmount>>> GetCosts()
-   {
-    var usercosts = await _repo.GetCostAmountsAsync();
-    return Ok(usercosts);
-   }
+        public CostsController(ICostAmountRepository repo)
+        {
+            _repo = repo;
+        }
 
 
-[HttpGet("{id}")]
-public async Task<ActionResult<CostAmount>> GetCost(int id)
-{
-return await _repo.GetCostAmountByIdAsync(id);
-}
+        [HttpGet]
+        public async Task<ActionResult<List<Cost>>> GetCosts()
+        {
+            var usercosts = await _repo.GetCostAmountsAsync();
+            return Ok(usercosts);
+        }
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Cost>> GetCost(int id)
+        {
+            return await _repo.GetCostAmountByIdAsync(id);
+        }
     }
 }

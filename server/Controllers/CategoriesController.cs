@@ -10,21 +10,21 @@ namespace Server.Controllers
         public ICostCategoryRepository _repo { get; }
 
         public CategoriesController(ICostCategoryRepository repo)
-        {            _repo = repo;        }
+        { _repo = repo; }
 
 
-[HttpGet]
-public async Task<ActionResult<List<CostCategory>>> GetCategories()
-{
-     var usercats = await _repo.GetCostCategoriesAsync();
-     return Ok(usercats);
-}
+        [HttpGet]
+        public async Task<ActionResult<List<Category>>> GetCategories()
+        {
+            var usercats = await _repo.GetCostCategoriesAsync();
+            return Ok(usercats);
+        }
 
-[HttpGet("{id}")]
-public async Task<ActionResult<CostCategory>> GetCategory(int id)
-{
-return await _repo.GetCostCategoryByIdAsync(id);
-}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Category>> GetCategory(int id)
+        {
+            return await _repo.GetCostCategoryByIdAsync(id);
+        }
 
     }
 }
