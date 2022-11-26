@@ -21,6 +21,21 @@ namespace Server.Entities
 
          public ICollection<CostCategory> UserCategories {get; set;}
          = new List<CostCategory>();
-    }
+   
+
+
+       /* public string Gender { get; set; }
+        public string Introduction { get; set; }
+        public string UsingKeycostFor { get; set; }
+        public string Interests { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string JobCurrent {get; set;}
+         public string JobPreferred {get; set;}
+        public string Email { get; set; }
+*/
+
+ }
+
 }
 

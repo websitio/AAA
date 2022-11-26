@@ -9,22 +9,26 @@ namespace Server.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]   
-        public int Id { get; set; }
+        public int 
+        Id { get; set; }
+
         [Required]  
         [MaxLength(50)]
-        public string Name { get; set; }
+        public string 
+        Name { get; set; }
 
          
         [MaxLength(150)]
-        public string Description { get; set; }
+        public string 
+        Description { get; set; }
 
         [Required]
         [ForeignKey("AppUserId")]
-        public int AppUserId { get; set; }
+        public int 
+        AppUserId { get; set; }
     
-
-        public ICollection<CostAmount> CostAmounts { get; set; } =
-        new List<CostAmount>();
+        public ICollection<CostAmount> 
+        CostAmounts { get; set; } = new List<CostAmount>();
 
     }
 }

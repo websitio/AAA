@@ -4,6 +4,7 @@ using Server.Interfaces;
 using Server.DtoModels;
 using AutoMapper;
 using Server.Entities;
+using server.DtoModels;
 
 namespace Server.Controllers
 {
@@ -44,7 +45,7 @@ namespace Server.Controllers
 
 
 
- [HttpGet("{username}")] /*⚡*/
+ [HttpGet("{username}")] 
        public async Task<ActionResult<AppUser>> 
        GetUser(string username)
         {
@@ -53,8 +54,25 @@ namespace Server.Controllers
         }
 
 
+// [HttpPost]
+// public async 
 
 
+
+
+
+
+//  var user = (System.Security.Claims.ClaimsIdentity)User.Identity;
+// var userId = user.FindFirstValue("UserId");
+
+
+
+// [HttpPut]
+// public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
+// {
+
+//     return await 
+// }
 
 
 

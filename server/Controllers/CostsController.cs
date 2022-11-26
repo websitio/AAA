@@ -10,10 +10,10 @@ namespace Server.Controllers
     {
         private readonly ICostAmountRepository _repo;
        
-         public CostsController(ICostAmountRepository repo)
-         {
-           _repo = repo;
-        }
+                 public CostsController(ICostAmountRepository repo)
+                      {
+                                 _repo = repo;
+                         }
 
    
    [HttpGet]

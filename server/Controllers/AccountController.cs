@@ -23,11 +23,12 @@ namespace Server.Controllers
             _tokenService = tokenService;
             _context = context;        }
 
+
+
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
-                    {
+         {
             if (await UserExists(registerDto.Username)) return BadRequest("whoops, that name is taken");
-
             using var hmac = new HMACSHA512();
             var user = new AppUser
             {
@@ -38,10 +39,10 @@ namespace Server.Controllers
 
             _context.Users.Add(user);
               await _context.SaveChangesAsync();
-            return new UserDto
-            {
-                Username = user.UserName,
-          Token = _tokenService.CreateToken(user)            };
+            return new UserDto {
+                                               Username = user.UserName,
+                                              Token = _tokenService.CreateToken(user)  
+                                          };
         }
 
         private async Task<bool> UserExists(string username)
@@ -49,18 +50,6 @@ namespace Server.Controllers
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());
             //does any username in table match what's passed in here
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         [HttpPost("login")]

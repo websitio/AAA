@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
  // import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { CategoryAddComponent } from './categories/category-add/category-add/category-add.component';
 // import { LearnmoreComponent } from './learnmore/learnmore.component';
 //import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 //import { CategoriesEditComponent } from './categories/categories-edit/categories-edit.component';
@@ -29,6 +30,8 @@ import { FormsModule } from '@angular/forms';
  //CostsListComponent,
  //CostsDetailComponent,
  // CostsEditComponent
+  
+    CategoryAddComponent
   ],
   imports: [
     CommonModule

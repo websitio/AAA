@@ -11,9 +11,11 @@ namespace Server.Extensions
              public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
             {
             services.AddScoped<ITokenService, TokenService>();
-     //       services.AddScoped<ICostAmountRepository, CostsRepository>();
+      
          //   services.AddScoped<ICostCategoryRepository, CategoriesRepository>();
+
             services.AddScoped<IUserRepository, AppUserRepository>();
+      //        services.AddScoped<ICostAmountRepository, CostsRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
             services.AddDbContext<DataContext>(options =>

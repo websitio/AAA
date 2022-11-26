@@ -5,16 +5,15 @@ using Server.Interfaces;
                                 // PERHAPS I SHOULD ALSO HAVE A SEPERATE COSTS DATASET FOR THE COSTS REPOSITORY
 namespace Server.DataServices
 {
-    public class CostsRepository //: ICostAmountRepository
+    public class CostsRepository : ICostAmountRepository
     {
      
-        private readonly DataContext _context;
+        private readonly CostsContext _context;
             
-        public CostsRepository(DataContext context)
+        public CostsRepository(CostsContext context)
         {  _context = context;}
 
-    
-   /*
+       /**/
        public async Task<CostAmount> GetCostAmountByIdAsync(int id)
        {
            return await _context.CostAmounts.FindAsync(id);
@@ -25,7 +24,7 @@ namespace Server.DataServices
           return await _context.CostAmounts.ToListAsync();
        }
 
-*/
+
 
 
 
