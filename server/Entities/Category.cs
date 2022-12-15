@@ -10,26 +10,22 @@ namespace Server.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int
-        Id
-        { get; set; }
+        Id { get; set; }
 
         [Required]
         [MaxLength(50)]
         public string
-        Name
-        { get; set; }
+        Name { get; set; }
 
 
         [MaxLength(150)]
         public string
-        Description
-        { get; set; }
+        Description { get; set; }
 
         [Required]
         [ForeignKey("AppUserId")]
         public int
-        AppUserId
-        { get; set; }
+        AppUserId  { get; set; }
 
         public ICollection<Cost>  CostAmounts { get; set; } = new List<Cost>();
 

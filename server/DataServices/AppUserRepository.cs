@@ -36,7 +36,7 @@ namespace Server.DataServices
                       {  return await _context.Users
                                          .FindAsync(id);   }
 
-#region later new option
+                                                                                #region later new option
             //   public async Task<IEnumerable<AppUser>> 
             //   GetUsersAsync() 
             //           {               return await _context.Users
@@ -58,6 +58,7 @@ namespace Server.DataServices
                    GetUserByUsernameAsync(string username)    
                    {  return await _context.Users
                       .Include(cat=>cat.UserCategories)
+                         .ThenInclude(co=>co.CostAmounts)
                                          .SingleOrDefaultAsync(x => x.UserName == username);              }
 
 
